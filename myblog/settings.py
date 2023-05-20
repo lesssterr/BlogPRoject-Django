@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+
 ]
 
 MIDDLEWARE = [
