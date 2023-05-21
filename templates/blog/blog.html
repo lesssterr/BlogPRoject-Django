@@ -18,6 +18,12 @@
             <ul>
                 <li><a href="/" class="active">Главная</a></li>
                 <li><a href="/admin">Админ панель</a></li>
+                {% if user.is_authenticated %}
+                  <li><a href="{% url 'account_logout' %}">Выйти</a></li>
+                {% else %}
+                  <li><a href="{% url 'account_login' %}">Логин</a></li>
+                  <li><a href="{% url 'account_signup' %}">Регистрация</a></li>
+                {% endif %}
 
             </ul>
         </div>
@@ -57,13 +63,6 @@
     </div>
 </div>
 
-{% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }}!</p>
-  <a href="{% url 'account_logout' %}">Logout</a>
-{% else %}
-  <a href="{% url 'account_login' %}">Login</a> |
-  <a href="{% url 'account_signup' %}">Sign Up</a>
-{% endif %}
 
 </body>
 </html>
